@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div>
-      <Link to="/">Home</Link>
+    <div className="header">
+      <h1>
+        <Link to="/">Home</Link>
+      </h1>
     </div>
   );
 };

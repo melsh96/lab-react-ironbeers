@@ -10,11 +10,18 @@ const Beers = (props) => {
         const id = String(beer._id);
         console.log(id);
         return (
-          <div key={beer._id}>
-            <img src={beer.image_url} alt="" />
-            <Link to={`/${id}`}>{beer.name}</Link>
-            <p>{beer.tagline}</p>
-            <p>Contributed by : {beer.contributed_by}</p>
+          <div className="beers-div" key={beer._id}>
+            <img className="beer-img" src={beer.image_url} alt="" />
+            <div className="beers-container-text">
+              <h2>
+                <Link to={`/${id}`}>{beer.name}</Link>
+              </h2>
+              <h3>{beer.tagline}</h3>
+              <p>
+                <strong>Contributed by : </strong>
+                {beer.contributed_by}
+              </p>
+            </div>
           </div>
         );
       })}

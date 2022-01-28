@@ -28,7 +28,7 @@ const NewBeer = () => {
     };
 
     axios
-      .post("https://ih-beers-api2.herokuapp.com/beers", data)
+      .post("https://ih-beers-api2.herokuapp.com/beers/new", data)
       .then((response) => {
         console.log(response);
         navigate("/beers");
@@ -39,7 +39,86 @@ const NewBeer = () => {
       });
   };
 
-  return <div></div>;
+  return (
+    <>
+      <div className="form">
+        <form onSubmit={handleSubmit} className="form">
+          {error !== "" && <p>{error}</p>}
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <label htmlFor="tagline">Tagline</label>
+          <input
+            type="text"
+            name="tagline"
+            id="tagline"
+            class="input"
+            value={tagline}
+            onChange={(e) => setTagline(e.target.value)}
+          />
+
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            class="input"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+
+          <label htmlFor="first_brewed">First Brewed</label>
+          <input
+            type="text"
+            name="first_brewed"
+            id="first_brewed"
+            class="input"
+            value={first_brewed}
+            onChange={(e) => setFirstBrewed(e.target.value)}
+          />
+
+          <label htmlFor="brewers_tips">Brewers Tips</label>
+          <input
+            type="text"
+            name="brewers_tips"
+            id="brewers_tips"
+            class="input"
+            value={brewers_tips}
+            onChange={(e) => setBrewersTips(e.target.value)}
+          />
+
+          <label htmlFor="attenuation_level">Attenuation Level</label>
+          <input
+            type="number"
+            name="attenuation_level"
+            id="attenuation_level"
+            class="input"
+            value={attenuation_level}
+            onChange={(e) => setAttenuationLevel(e.target.value)}
+          />
+
+          <label htmlFor="contributed_by">Contributed By</label>
+          <input
+            type="text"
+            name="contributed_by"
+            id="contributed_by"
+            class="input"
+            value={contributed_by}
+            onChange={(e) => setContributedBy(e.target.value)}
+          />
+
+          <button>ADD NEW</button>
+        </form>
+      </div>
+    </>
+  );
 };
 
 export default NewBeer;
